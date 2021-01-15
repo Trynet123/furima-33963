@@ -17,17 +17,17 @@
 
 ## items
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| name            | string     | null: false                    |
-| text            | text       | null: false                    |
-| category        | string     | null: false                    |
-| condition       | string     | null: false                    |
-| shipping_charge | string     | null: false                    |
-| shipping_area   | string     | null: false                    |
-| days_to_ship    | string     | null: false                    |
-| price           | integer    | null: false                    |
-| user            | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| name               | string     | null: false                    |
+| text               | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| shipping_charge_id | integer    | null: false                    |
+| shipping_area_id   | integer    | null: false                    |
+| days_to_ship_id    | integer    | null: false                    |
+| price              | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 
 ### Association
