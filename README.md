@@ -34,7 +34,7 @@
 - has_one :transaction
 - belongs_to :user
 
-## transactions
+## item_transactions
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
