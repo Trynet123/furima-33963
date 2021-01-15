@@ -13,7 +13,7 @@
 
 ### Association
 - has_many :items
-- has_many :transactions
+- has_many :item_transactions
 
 ## items
 
@@ -31,7 +31,7 @@
 
 
 ### Association
-- has_one :transaction
+- has_one :item_transactions
 - belongs_to :user
 
 ## item_transactions
@@ -60,4 +60,4 @@
 
 
 ### Association
-- belongs_to :transaction
+- belongs_to :item_transactions
