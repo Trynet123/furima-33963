@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  
 
   with_options presence: true do
     validates :name
@@ -19,4 +21,5 @@ class Item < ApplicationRecord
   end
   
   belongs_to :user
+
 end
