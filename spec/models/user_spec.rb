@@ -45,40 +45,60 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
     end
+    it "password：半角英語のみは登録できない" do
+      @user.password = 'aaaaaa'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
+    end
+    it "password：全角英数混合は登録できない" do
+      @user.password = 'Ik０１２３'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
+    end
     it 'パスワードとパスワード（確認用）は、値の一致が必須であること' do
       @user.password_confirmation = '00000b'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
-    it 'ユーザー本名は、名字が必須であること' do
+    it '姓：入力が必須であること' do
       @user.last_name = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Last name can't be blank")
     end
-    it 'ユーザー本名は、名前が必須であること' do
+    it '名：入力が必須であること' do
       @user.first_name = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("First name can't be blank")
     end
-    it 'ユーザー本名は、全角（漢字・ひらがな・カタカナ）での入力が必須であること' do
+    it '姓：全角（漢字・ひらがな・カタカナ）での入力が必須であること' do
       @user.last_name = 'aaaaa'
       @user.valid?
       expect(@user.errors.full_messages).to include('Last name Full-width characters')
     end
-    it 'ユーザー本名のフリガナは、名字が必須であること' do
+    it "名：全角（漢字・ひらがな・カタカナ）での入力が必須であること" do
+      @user.first_name = "tester"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name Full-width characters")
+    end
+    it '姓（フリガナ）：入力が必須であること' do
       @user.last_name_reading = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Last name reading can't be blank")
     end
-    it 'ユーザー本名のフリガナは、名前が必須であること' do
+    it '名（フリガナ）：入力が必須であること' do
       @user.first_name_reading = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("First name reading can't be blank")
     end
-    it 'ユーザー本名のフリガナは、全角（カタカナ）での入力が必須であること' do
+    it '姓（フリガナ）：全角（カタカナ）での入力が必須であること' do
       @user.last_name_reading = 'aaaaaa'
       @user.valid?
       expect(@user.errors.full_messages).to include('Last name reading kana Full-width katakana characters')
+    end
+    it "名（フリガナ）：全角（カタカナ）での入力が必須であること" do
+      @user.first_name_reading = "testerr"
+      @user.valid?
+      expect(@user.errors.full_messages).to include()
     end
     it '生年月日が必須であること' do
       @user.birth_day = ''
