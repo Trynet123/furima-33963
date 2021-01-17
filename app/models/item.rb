@@ -1,14 +1,15 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  
+  belongs_to :prefecture
+  belongs_to :user
 
+  validates :prefecture_id, numericality: { other_than: 1}
   with_options presence: true do
     validates :name
     validates :text
     validates :category_id 
     validates :condition_id
     validates :shipping_charge_id
-    validates :prefecture_id
     validates :days_to_ship_id
     validates :price, 
       numericality: {
@@ -19,7 +20,4 @@ class Item < ApplicationRecord
       },
       format: { with: /\A[0-9]+\z/, message: "Half-width number"}
   end
-  
-  belongs_to :user
-
 end
