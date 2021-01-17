@@ -98,7 +98,7 @@ RSpec.describe User, type: :model do
     it "名（フリガナ）：全角（カタカナ）での入力が必須であること" do
       @user.first_name_reading = "testerr"
       @user.valid?
-      expect(@user.errors.full_messages).to include()
+      expect(@user.errors.full_messages).to include("First name reading kana Full-width katakana characters")
     end
     it '生年月日が必須であること' do
       @user.birth_day = ''
