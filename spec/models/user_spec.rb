@@ -45,20 +45,20 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
     end
-    it "password：半角英語のみは登録できない" do
+    it 'password：半角英語のみは登録できない' do
       @user.password = 'aaaaaa'
       @user.valid?
       expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
     end
-    it "password：全角では登録できない" do
+    it 'password：全角では登録できない' do
       @user.password = 'ぱすわあどで'
       @user.valid?
       expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
     end
-    it "password：全角英数混合は登録できない" do
+    it 'password：全角英数混合は登録できない' do
       @user.password = 'Ik０１２３'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
+      expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
     end
     it 'パスワードとパスワード（確認用）は、値の一致が必須であること' do
       @user.password_confirmation = '00000b'
@@ -80,10 +80,10 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('Last name Full-width characters')
     end
-    it "名：全角（漢字・ひらがな・カタカナ）での入力が必須であること" do
-      @user.first_name = "tester"
+    it '名：全角（漢字・ひらがな・カタカナ）での入力が必須であること' do
+      @user.first_name = 'tester'
       @user.valid?
-      expect(@user.errors.full_messages).to include("First name Full-width characters")
+      expect(@user.errors.full_messages).to include('First name Full-width characters')
     end
     it '姓（フリガナ）：入力が必須であること' do
       @user.last_name_reading = ''
@@ -100,10 +100,10 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include('Last name reading kana Full-width katakana characters')
     end
-    it "名（フリガナ）：全角（カタカナ）での入力が必須であること" do
-      @user.first_name_reading = "testerr"
+    it '名（フリガナ）：全角（カタカナ）での入力が必須であること' do
+      @user.first_name_reading = 'testerr'
       @user.valid?
-      expect(@user.errors.full_messages).to include("First name reading kana Full-width katakana characters")
+      expect(@user.errors.full_messages).to include('First name reading kana Full-width katakana characters')
     end
     it '生年月日が必須であること' do
       @user.birth_day = ''
