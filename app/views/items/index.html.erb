@@ -126,6 +126,7 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
 
+    <% if @items[0] != nil %>
       <% @items.each do |item| %>
       <li class='list'>
         <%= link_to "#" do %>
@@ -174,7 +175,7 @@
         <% end %>
       </li>
       <% end %>
-
+    <% end %>
     </ul>
   </div>
   <%# /商品一覧 %>
