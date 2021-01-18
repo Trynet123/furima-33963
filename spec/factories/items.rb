@@ -9,5 +9,6 @@ FactoryBot.define do
     days_to_ship_id { 2 }
     price { '300' }
     user_id { 1 }
+    association :user
   end
 end
