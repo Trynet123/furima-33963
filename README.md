@@ -31,7 +31,7 @@
 
 
 ### Association
-- has_one :item_transactions
+- has_one :item_transaction
 - belongs_to :user
 
 ## item_transactions
@@ -61,4 +61,4 @@
 | item_transaction | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :item_transactions
+- belongs_to :item_transaction
