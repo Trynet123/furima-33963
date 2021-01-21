@@ -1,6 +1,6 @@
 class Order
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :phone_number, :building_name
+  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :phone_number, :building_name, :item_id, :user_id
 
   # ItemTransactionモデルは外部キー制約
   # Addresモデルのバリデーション
@@ -13,8 +13,7 @@ class Order
   end
 
   def save
-    # パラムズから取得する
-    item_transaction = ItemTransaction.create(item_id: , user_id: )
+    item_transaction = ItemTransaction.create(item_id: item_id, user_id: user_id )
     Address.create(
       postal_code: postal_code, 
       prefecture_id: prefecture_id, 
