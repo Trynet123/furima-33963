@@ -5,11 +5,11 @@ class Order
   # ItemTransactionモデルは外部キー制約
   # Addresモデルのバリデーション
   with_options presence: true do
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Include hyphen(-)" }
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid" }
     validates :prefecture_id
-    validates :city, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: ""}
+    validates :city, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: "is invalid" }
     validates :house_number
-    validates :phone_number, format: { with: /\A[0-9]+\z/, message: ""}
+    validates :phone_number, format: { with: /\A[0-9]+\z/, message: "is invalid" }
   end
 
   def save
