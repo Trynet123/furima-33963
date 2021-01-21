@@ -2,6 +2,7 @@ class Order
   include ActiveModel::Model
   attr_accessor :postal_code, :prefecture_id, :city, :house_number, :phone_number, :building_name
 
+  # ItemTransactionモデルは外部キー制約
   # Addresモデルのバリデーション
   with_options presence: true do
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Include hyphen(-)" }
