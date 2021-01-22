@@ -15,7 +15,7 @@ class Order
     validates :prefecture_id
     validates :city, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: "is invalid" }
     validates :house_number
-    validates :phone_number, length: { maximum: 11 }, format: { with:/\A[0-9]\z/, message: "is invalid"}
+    validates :phone_number, length: { maximum: 11 }, format: { with:/\A[0-9]+\z/, message: "is invalid"}
     validates :item_id
     validates :user_id
     validates :token
