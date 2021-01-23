@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
       @order.save
       redirect_to root_path
     else
-      set_item
       render :index
     end
   end
