@@ -6,6 +6,10 @@ RSpec.describe Order, type: :model do
       @order = FactoryBot.build(:order)
     end
 
+    it '必須項目を正しく入力したら登録できること' do
+      expect(@order).to be_valid
+    end
+
     it 'postal_code:必須であること' do
       @order.postal_code = ''
       @order.valid?
