@@ -51,7 +51,9 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path unless current_user.id == @item.user.id
+    if current_user.id != @item.user.id || @item.item_transaction != nil
+      redirect_to root_path 
+    end
   end
 
   def set_item
