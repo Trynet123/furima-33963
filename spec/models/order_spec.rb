@@ -9,7 +9,10 @@ RSpec.describe Order, type: :model do
     it '必須項目を正しく入力したら登録できること' do
       expect(@order).to be_valid
     end
-
+    it 'building_name:空でも登録できること' do
+      @order.building_name = ""
+      expect(@order).to be_valid
+    end
     it 'postal_code:必須であること' do
       @order.postal_code = ''
       @order.valid?
