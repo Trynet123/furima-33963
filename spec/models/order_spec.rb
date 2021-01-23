@@ -6,45 +6,49 @@ RSpec.describe Order, type: :model do
       @order = FactoryBot.build(:order)
     end
 
-    context '配送先の情報登録のバリデーション'
-
-    it '郵便番号の入力が必須であること' do
+    it 'postal_code:必須であること' do
       @order.postal_code = ''
       @order.valid?
       expect(@order.errors.full_messages).to include("Postal code can't be blank")
     end
-    it '都道府県の入力が必須であること' do
-      @order.prefecture_id = nil
-      @order.valid?
-      expect(@order.errors.full_messages).to include("Prefecture can't be blank")
-    end
-    it '市区町村の入力が必須であること' do
-      @order.city = ''
-      @order.valid?
-      expect(@order.errors.full_messages).to include("City can't be blank")
-    end
-    it '番地の入力が必須であること' do
-      @order.house_number = ''
-      @order.valid?
-      expect(@order.errors.full_messages).to include("House number can't be blank")
-    end
-    it '電話番号の入力が必須であること' do
-      @order.phone_number = ''
-      @order.valid?
-      expect(@order.errors.full_messages).to include("Phone number can't be blank")
-    end
-    it '郵便番号の保存にはハイフンが必要であること' do
+    it 'postal_code:ハイフンが必須であること' do
       @order.postal_code = '12345678'
       @order.valid?
       expect(@order.errors.full_messages).to include('Postal code is invalid')
     end
+    it 'prefecture_id:必須であること' do
+      @order.prefecture_id = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Prefecture can't be blank")
+    end
+    it 'city:必須であること' do
+      @order.city = ''
+      @order.valid?
+      expect(@order.errors.full_messages).to include("City can't be blank")
+    end
+    it 'house_number:必須であること' do
+      @order.house_number = ''
+      @order.valid?
+      expect(@order.errors.full_messages).to include("House number can't be blank")
+    end
+    it 'phone_number:必須であること' do
+      @order.phone_number = ''
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Phone number can't be blank")
+    end
+   
     it 'phone_number:11桁以内の数値のみ保存可能なこと(１２桁)' do
       @order.phone_number = '0123456789012'
       @order.valid?
       expect(@order.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
-    it 'phone_number:11桁以内の数値のみ保存可能なこと(全角文字)' do
-      @order.phone_number = 'あいうえおかきくけこさ'
+    it 'phone_number:11桁以内の数値のみ保存可能なこと(全角英大文字)' do
+      @order.phone_number = 'ＡＢＣＤＥＦＧＨＩＪＫ'
+      @order.valid?
+      expect(@order.errors.full_messages).to include('Phone number is invalid')
+    end
+    it 'phone_number:11桁以内の数値のみ保存可能なこと(全角英小文字)' do
+      @order.phone_number = 'ａｂｃｄｅｆｇｈｉｊｋ'
       @order.valid?
       expect(@order.errors.full_messages).to include('Phone number is invalid')
     end
