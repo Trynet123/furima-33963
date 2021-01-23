@@ -36,7 +36,6 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Phone number can't be blank")
     end
-   
     it 'phone_number:11桁以内の数値のみ保存可能なこと(１２桁)' do
       @order.phone_number = '0123456789012'
       @order.valid?
