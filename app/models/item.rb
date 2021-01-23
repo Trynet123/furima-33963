@@ -10,7 +10,9 @@ class Item < ApplicationRecord
   has_one_attached :image
   has_one :item_transaction
 
-  with_options numericality: { other_than: 1 } do
+  validates :price, numericality: { only_integer: true, message: 'Half-width number' }
+
+  with_options numericality: { other_than: 1, message: 'Select' } do
     validates :category_id
     validates :condition_id
     validates :shipping_charge_id
@@ -26,7 +28,6 @@ class Item < ApplicationRecord
               numericality: {
                 greater_than_or_equal_to: 300,
                 less_than_or_equal_to: 9_999_999,
-                only_integer: true,
                 message: 'Out of setting range'
               }
   end
