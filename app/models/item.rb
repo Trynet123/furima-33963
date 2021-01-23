@@ -30,4 +30,5 @@ class Item < ApplicationRecord
                 message: 'Out of setting range'
               }
   end
+  
 end
