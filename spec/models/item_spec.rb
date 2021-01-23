@@ -32,27 +32,27 @@ RSpec.describe Item, type: :model do
     it 'カテゴリーの情報が必須であること' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Category must be other than 1')
+      expect(@item.errors.full_messages).to include('Category Select')
     end
     it '商品の状態についての情報が必須であること' do
       @item.condition_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Condition must be other than 1')
+      expect(@item.errors.full_messages).to include('Condition Select')
     end
     it '配送料の負担についての情報が必須であること' do
       @item.shipping_charge_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Shipping charge must be other than 1')
+      expect(@item.errors.full_messages).to include('Shipping charge Select')
     end
     it '発送元の地域についての情報が必須であること' do
       @item.prefecture_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
+      expect(@item.errors.full_messages).to include('Prefecture Select')
     end
     it '発送までの日数についての情報が必須であること' do
       @item.days_to_ship_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Days to ship must be other than 1')
+      expect(@item.errors.full_messages).to include('Days to ship Select')
     end
     it 'price：販売価格の入力が必須であること' do
       @item.price = nil
