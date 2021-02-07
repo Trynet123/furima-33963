@@ -1,21 +1,46 @@
 ja:
- activerecord:
-   attributes:
-     user:
-       nickname: ニックネーム
-       last_name: 名前(姓)
-       first_name: 名前(名)
-       last_name_reading: フリガナ(姓)
-       first_name_reading: フリガナ(名)
-       birth_day: 生年月日
-     item:
-       image: 商品画像
-       name: 商品名
-       text: 商品の説明
-       price: 販売価格
-       category_id: カテゴリー
-       condition_id: 商品の状態
-       shipping_charge_id: 配送料の負担
-       prefecture_id: 発送元の地域
-       days_to_ship_id: 発送までの日数
-       
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 名前(姓)
+        first_name: 名前(名)
+        last_name_reading: フリガナ(姓)
+        first_name_reading: フリガナ(名)
+        birth_day: 生年月日
+      item:
+        image: 商品画像
+        name: 商品名
+        text: 商品の説明
+        price: 販売価格
+        category_id: カテゴリー
+        condition_id: 商品の状態
+        shipping_charge_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        days_to_ship_id: 発送までの日数
+      order:
+        number: カード情報
+        exp_month: 有効期限(月)
+        exp_year: 有効期限(年)
+        cvc: セキュリティコード
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        house_number: 番地
+        phone_number: 電話番号
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+      long: "%Y年%m月%d日(%a)"
+
+    day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
+    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+
+    month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+
+    order:
+      - :year
+      - :month
+      - :day
