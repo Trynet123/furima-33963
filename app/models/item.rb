@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_charge
 
   belongs_to :user
-  has_one_attached :image
+  has_many_attached :images
   has_one :item_transaction
 
   validates :price, numericality: { only_integer: true, message: 'Half-width number' }
