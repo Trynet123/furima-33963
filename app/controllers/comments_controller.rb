@@ -8,8 +8,10 @@ class CommentsController < ApplicationController
   # end
 
   def create
-    comment = Comment.create(comment_params)
-    redirect_to item_path(comment.item.id)
+    comment = Comment.new(comment_params)
+    if comment.save
+      redirect_to item_path(comment.item.id)
+    end
   end
 
   private

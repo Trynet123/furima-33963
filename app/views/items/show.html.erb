@@ -91,7 +91,7 @@
     <% end %>
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
-      <% @comments.each do |comment| %>
+      <% @comments.reverse_each do |comment| %>
         <p class="comment">
           <strong><%= link_to comment.user.nickname, "#" %>：</strong>
           <%= comment.text %>
