@@ -33,6 +33,7 @@
 ### Association
 - has_one :item_transactions
 - belongs_to :user
+- has_many :comments
 
 ## item_transactions
 
@@ -62,3 +63,14 @@
 
 ### Association
 - belongs_to :item_transactions
+
+## comments
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :item
