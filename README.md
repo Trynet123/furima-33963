@@ -14,6 +14,7 @@
 ### Association
 - has_many :items
 - has_many :item_transactions
+- has_many :comments
 
 ## items
 
@@ -74,3 +75,4 @@
 
 ### Association
 - belongs_to :item
+- belongs_to :user

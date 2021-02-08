@@ -183,6 +183,12 @@
   margin: 10px 5px 0 0;
 }
 
+.comment {
+  /* display: block; */
+  text-align: left;
+  padding-left: 10%;
+}
+
 .links {
   display: flex;
   justify-content: space-between;
