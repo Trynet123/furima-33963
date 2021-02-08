@@ -10,6 +10,10 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     if comment.save
+      # @item = Item.find(params[:item_id])
+      # @comments = @item.comments.includes(:user)
+      # ActionCable.server.broadcast 'comment_channel', content: comment
+      # render item_path(comment.item.id)
       redirect_to item_path(comment.item.id)
     end
   end
