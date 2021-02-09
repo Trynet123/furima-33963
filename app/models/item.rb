@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one :item_transaction
+  has_many :comments
 
   validates :price, numericality: { only_integer: true, message: 'を半角数字で入力してください' }
 
