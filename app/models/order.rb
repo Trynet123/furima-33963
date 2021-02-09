@@ -11,11 +11,11 @@ class Order
                 :token
 
   with_options presence: true do
-    validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid' }
+    validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'を半角数字で入力してください' }
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :city
     validates :house_number
-    validates :phone_number, length: { maximum: 11 }, format: { with: /\A[0-9]+\z/, message: 'is invalid' }
+    validates :phone_number, length: { maximum: 11 }, format: { with: /\A[0-9]+\z/, message: 'を半角数字で入力してください' }
     validates :item_id
     validates :user_id
     validates :token
