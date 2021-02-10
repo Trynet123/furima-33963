@@ -8,8 +8,13 @@ crumb :items do |item|
 end
 
 crumb :orders do |item|
-  link "購入画面", item_orders_path(params[:item_id])
-  parent :items,item
+  link "購入", item_orders_path(params[:item_id])
+  parent :items, item
+end
+
+crumb :edit do |item|
+  link "編集", edit_item_path(item)
+  parent :items, item
 end
 
 # crumb :projects do
