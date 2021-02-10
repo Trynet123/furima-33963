@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :items do |item|
-  link "商品詳細",item_path(item)
+  link item.name,item_path(item)
   parent :root
 end
 
